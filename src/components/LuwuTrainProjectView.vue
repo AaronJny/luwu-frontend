@@ -163,12 +163,9 @@ export default {
         });
     },
     deleteTrainProjects: function (xid) {
-      const url = this.base_url + "/api/v1/project/" + xid + "/update/";
-      const data = {
-        deleted: 1,
-      };
+      const url = this.base_url + "/api/v1/project/" + xid + "/delete/logical/";
       this.$axios
-        .post(url, data)
+        .get(url)
         .then((res) => {
           if (res.data.code === 0) {
             this.$notify.success(res.data.msg);
