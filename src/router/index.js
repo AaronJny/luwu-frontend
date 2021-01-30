@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-12-31 13:29:11
  * @Author       : AaronJny
- * @LastEditTime : 2021-01-28
+ * @LastEditTime : 2021-01-30
  * @FilePath     : /luwu-frontend/src/router/index.js
  * @Desc         : 
  */
@@ -12,6 +12,7 @@ import Login from '@/views/Login'
 import LuwuImageClassifyView from '@/components/LuwuImageClassifyView'
 import LuwuTrainProjectView from '@/components/LuwuTrainProjectView'
 import CodeEditorView from '@/components/CodeEditorView'
+import LogsView from '@/components/LogsView'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
           path: 'editor/:id',
           name: 'editor',
           component: CodeEditorView
+        },
+        {
+          path: 'logs/:id',
+          name: 'logs',
+          component: LogsView
         }
       ]
     },

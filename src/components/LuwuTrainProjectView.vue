@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-12-31 16:37:59
  * @Author       : AaronJny
- * @LastEditTime : 2021-01-29
+ * @LastEditTime : 2021-01-30
  * @FilePath     : /luwu-frontend/src/components/LuwuTrainProjectView.vue
  * @Desc         : 
 -->
@@ -80,8 +80,18 @@
               >终止训练</el-button
             >
           </div>
-          <div v-if="scope.row.status != 0" style="margin: 5px">
-            <el-button type="info">查看日志</el-button>
+          <div
+            v-if="scope.row.status != 0 && scope.row.status != 1"
+            style="margin: 5px"
+          >
+            <el-button type="info">
+              <el-link
+                :underline="false"
+                :href="'/home/logs/' + scope.row.id"
+                style="color: #ffffff"
+                >查看日志</el-link
+              >
+            </el-button>
           </div>
           <div v-if="scope.row.status === 3" style="margin: 5px">
             <el-button type="primary">

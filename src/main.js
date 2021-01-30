@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-12-31 13:29:11
  * @Author       : AaronJny
- * @LastEditTime : 2021-01-29
+ * @LastEditTime : 2021-01-30
  * @FilePath     : /luwu-frontend/src/main.js
  * @Desc         : 
  */
@@ -15,8 +15,8 @@ import router from './router'
 import axios from 'axios'
 
 Vue.prototype.$axios = axios;
-Vue.prototype.base_url = 'http://localhost:7788';
-// Vue.prototype.base_url = '';
+// Vue.prototype.base_url = 'http://localhost:7788';
+Vue.prototype.base_url = '';
 
 
 Vue.config.productionTip = false
