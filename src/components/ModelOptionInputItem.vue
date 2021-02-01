@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-12-31 17:36:18
  * @Author       : AaronJny
- * @LastEditTime : 2021-01-23
+ * @LastEditTime : 2021-02-01
  * @FilePath     : /luwu-frontend/src/components/ModelOptionInputItem.vue
  * @Desc         : 
 -->
@@ -9,13 +9,17 @@
   <el-row>
     <el-form :rules="rules">
       <el-col :span="6">
-        <el-form-item :label="label" prop="value"> </el-form-item>
+        <el-tooltip v-if="tip" class="item" effect="dark" placement="right">
+          <div slot="content" v-html="tip"></div>
+          <el-form-item :label="label" prop="value"> </el-form-item>
+        </el-tooltip>
+        <el-form-item v-else :label="label" prop="value"> </el-form-item>
       </el-col>
       <el-col :span="12">
         <el-form-item>
           <el-input
             v-model="value"
-            :placeholder="input.placeholder"
+            :placeholder="placeholder"
             @change="callback"
           ></el-input>
         </el-form-item>
@@ -27,7 +31,7 @@
 <script>
 export default {
   name: "ModelOptionInputItem",
-  props: ["label", "input", "required", "callback"],
+  props: ["label", "placeholder", "required", "callback", "tip"],
   data() {
     return {
       value: "",

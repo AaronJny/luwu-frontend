@@ -1,7 +1,7 @@
 <!--
  * @Date         : 2020-12-31 16:37:59
  * @Author       : AaronJny
- * @LastEditTime : 2021-01-29
+ * @LastEditTime : 2021-02-01
  * @FilePath     : /luwu-frontend/src/components/LuwuImageClassifyView.vue
  * @Desc         : 
 -->
@@ -43,25 +43,29 @@
           :callback="changeDatasetIndex"
           :default_index="1"
           :required="true"
+          tip="决定了 `陆吾` 以何种方式读取并处理数据"
         >
         </model-option-radio-item>
         <model-option-input-item
           label="原始数据集路径:"
-          :input="info.dataset_input"
+          :placeholder="info.dataset_input_placeholder"
           :required="true"
           :callback="changeOriginDatasetPath"
+          tip="存储数据集的文件夹路径，请填写绝对路径。<br/><br/>注意，当时候 docker 部署时，需要响应调整数据集路径。"
         >
         </model-option-input-item>
         <model-option-input-item
           label="清洗后数据集保存路径:"
-          :input="info.dataset_input"
+          :placeholder="info.dataset_input_placeholder"
+          tip="`陆吾` 在进行模型训练前，会先尝试将原始数据集转成TFRecordDataset的格式，并切分验证集。<br/><br/>页面中的“清洗后数据集保存路径”即为保存转换后的TFRecordDataset格式的数据集的路径，只需要指定放在哪个文件夹下即可。<br/><br/>如果不填写，默认与“原始数据集路径”保持一致。"
           :required="false"
           :callback="changeTargetDatasetPath"
         >
         </model-option-input-item>
         <model-option-input-item
           label="模型及生成代码的保存路径:"
-          :input="info.dataset_input"
+          :placeholder="info.dataset_input_placeholder"
+          tip="训练过程中，`陆吾` 会保存训练过程中的当前最佳模型参数、日志文件，并在训练完成后生成调用代码模板。<br/><br/>这些文件将被保存到页面上“模型及生成代码的保存路径”中填写的文件夹下。<br/><br/>如果不填写，默认与“清洗后数据集保存路径”保持一致。"
           :required="false"
           :callback="changeModelSavePath"
         >
@@ -134,7 +138,8 @@ export default {
           {
             index: 1,
             name: "按文件夹组织",
-            tip: "",
+            tip:
+              "每一个类别的图片放在一个单独文件夹下，这些文件夹又放在同一个文件夹下",
           },
           // {
           //   index: 2,
@@ -144,10 +149,7 @@ export default {
         ],
         models: [],
         dataset_index: 1,
-        dataset_input: {
-          placeholder: "请填写路径...",
-          text: "",
-        },
+        dataset_input_placeholder: "请填写路径...",
         origin_dataset_path: "",
         target_dataset_path: "",
         model_save_path: "",

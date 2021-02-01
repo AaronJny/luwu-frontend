@@ -1,7 +1,7 @@
 /*
  * @Date         : 2020-12-31 13:29:11
  * @Author       : AaronJny
- * @LastEditTime : 2021-01-30
+ * @LastEditTime : 2021-02-01
  * @FilePath     : /luwu-frontend/src/main.js
  * @Desc         : 
  */
